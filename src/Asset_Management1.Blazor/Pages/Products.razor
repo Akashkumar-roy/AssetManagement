@@ -1,0 +1,62 @@
+﻿@page "/products"
+@inherits Asset_Management1ComponentBase
+@using Asset_Management1.Blazor
+@using Asset_Management1.Products
+@using Asset_Management1.Localization
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<Asset_Management1Resource> L
+
+@if ( Loading )
+{
+    <span>Loading...</span>
+}
+else
+{
+    <SfButton OnClick="@OpenCreateProductModalAsync" IsPrimary="true">New Product</SfButton>
+
+    <SfGrid DataSource="@ProductList" AllowPaging="true">
+        <GridPageSettings PageSizes="true" PageSize="10"></GridPageSettings>
+        <GridColumns>
+            <GridColumn Field="@nameof( ProductDto.Name )" HeaderText="Name " />
+            <GridColumn Field="@nameof( ProductDto.Price )" HeaderText="Price " />
+            <GridColumn Field="@nameof( ProductDto.PublishDate )" HeaderText="Publish Date" />
+            <GridColumn Width="200px">
+                <Template>
+                    <SfButton OnClick="@(()=>OpenEditingProductModalAsync(context as ProductDto))">Edit</SfButton>
+                    <SfButton OnClick="@(()=>DeleteProductAsync(context as ProductDto))">Delete</SfButton>
+                </Template>
+            </GridColumn>
+        </GridColumns>
+    </SfGrid>
+
+    <SfDialog @bind-Visible="@NewDialogOpen" Width="500px">
+        <DialogTemplates>
+            <Header>New Product</Header>
+            <Content>
+                <SfTextBox @bind-Value="@NewProductDto.Name" Placeholder='Product Name' FloatLabelType='FloatLabelType.Auto' />
+                <SfNumericTextBox TValue="float" @bind-Value="@NewProductDto.Price" Placeholder="Price" FloatLabelType="FloatLabelType.Auto" />
+                <SfDatePicker TValue="DateTime" @bind-Value="@NewProductDto.PublishDate" Placeholder='Manufacture Date' FloatLabelType="FloatLabelType.Auto" />
+            </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="Cancel" OnClick="@(e => { NewDialogOpen = false; })" />
+            <DialogButton Content="Create" OnClick="@CreateProductAsync" IsPrimary="true" />
+        </DialogButtons>
+    </SfDialog>
+
+    <SfDialog @bind-Visible="@EditingDialogOpen" Width="500px">
+        <DialogTemplates>
+            <Header>Edit Product</Header>
+            <Content>
+                <SfTextBox @bind-Value="@EditingProductDto.Name" Placeholder='Product Name' FloatLabelType='FloatLabelType.Auto' />
+                <SfNumericTextBox TValue="float" @bind-Value="@EditingProductDto.Price" Placeholder="Price" FloatLabelType="FloatLabelType.Auto" />
+                <SfDatePicker TValue="DateTime" @bind-Value="@EditingProductDto.PublishDate" Placeholder='Publish Date' FloatLabelType="FloatLabelType.Auto" />
+            </Content>
+        </DialogTemplates>
+        <DialogButtons>
+            <DialogButton Content="Cancel" OnClick="@(e => { EditingDialogOpen = false; })" />
+            <DialogButton Content="Update" OnClick="@UpdateProductAsync" IsPrimary="true" />
+        </DialogButtons>
+    </SfDialog>
+}

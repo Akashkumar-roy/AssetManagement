@@ -1,0 +1,123 @@
+﻿@page "/"
+@using Volo.Abp.MultiTenancy
+@inherits Asset_Management1ComponentBase
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="container">
+    <div class="p-5 text-center">
+        <Badge Color="Color.Success" class="mb-4">
+            <h5 class="m-1"> <i class="fa fa-sign-in-alt"></i> Every business has <strong> to prioritize</strong> protecting its assets!</h5>
+        </Badge>
+
+        <h1>Welcome to the Asset Management Application</h1>
+
+        <p class="lead px-lg-5 mx-lg-5">@L["There is a spirituality to money & we understand that at Mayflower-Plymouth."]</p>
+
+        @if ( !CurrentUser.IsAuthenticated )
+        {
+            <a class="btn btn-primary" href="/authentication/login">
+                <i class="fa fa-sign-in-alt"></i> @L["LOGIN YOUR ACCOUNT HERE"]
+            </a>
+        }
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-auto text-center">
+                    <img src="https://blog.device42.com/wp-content/uploads/2013/12/asset_management.png" style="max-width: 400px;" class="w-100 mb-5 my-md-3">
+                </div>
+                <div class="col-md d-flex align-items-center">
+                    <div class="pe-0 pe-md-4">
+                        <small class="text-uppercase text-muted">THE ASSET MANAGEMENT</small>
+                        <h2 class="mb-4">ASSET MANAGEMENT DASHBOARD</h2>
+                        <p class="mb-4">Asset management is a systematic approach to the governance and realization of value from the things that a group or entity is responsible for, over their whole life cycles. It may apply both to tangible assets and to intangible assets.</p>
+                        <div class="mb-4">
+                            <a href="https://hbswk.hbs.edu/Pages/browse.aspx?HBSTopic=Asset%20Management" class="btn btn-success mb-1">
+                                 ARTICLE
+                            </a>
+                            <a href="https://www.assettrac.com.au/blog/7-essential-features-of-asset-management-software/" class="btn btn-primary mb-1">
+                                FEATURES
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-3 text-center">
+        <h3>Let's Manage your Asset!</h3>
+        <p>Here are some links to help you get started:</p>
+    </div>
+
+
+
+    <div class="mt-5 my-3 text-center">
+        <h3>Meet the Asset Management Commercial</h3>
+        <p>
+            “Growth is only possible when there is inclusivity”
+            ― David Sikhosana
+        </p>
+    </div>
+
+    <div class="card mt-4 mb-5">
+        <div class="card-body">
+            <p class="px-lg-5 mx-lg-5 py-3 text-center">
+                <a href="https://www.atlassian.com/software/jira/service-management?&aceid=&adposition=&adgroup=139892813016&campaign=17879825201&creative=613111126492&device=c&keyword=asset%20management&matchtype=e&network=g&placement=&ds_kids=p72331186385&ds_e=GOOGLE&ds_eid=700000001721198&ds_e1=GOOGLE&gclid=EAIaIQobChMIjJuLk_P7-QIVyqqWCh3FtgXdEAAYASAAEgL0uvD_BwE&gclsrc=aw.ds" target="_blank">Asset Management</a>
+            </p>
+
+            <div class="row text-center justify-content-md-center">
+                <div class="col-lg-2">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> Request Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#request-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 border-start">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> Incident Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#incident-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 border-start">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> Problem <br />Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#problem-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 border-start">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> hange <br /> Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#change-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 border-start">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> Asset Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#asset-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 border-start">
+                    <div class="p-3">
+                        <h6>
+                            <i class="fas fa-plus d-block mb-3 fa- 2x text-secondary"></i> Configuration Management
+                            <a href="https://www.atlassian.com/software/jira/service-management/features/itsm#configuration-management" target="_blank" class="d-block mt-2 btn btn-sm btn-link">Details <i class="fas fa-chevron-right"></i></a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Asset_Management1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Asset_Management1.EntityFrameworkCore\Asset_Management1.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Asset_Management1.TestBase\Asset_Management1.TestBase.csproj" />
+    <PackageReference Include="Syncfusion.Blazor.Kanban" Version="20.2.0.48" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="5.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+  </ItemGroup>
+
+</Project>

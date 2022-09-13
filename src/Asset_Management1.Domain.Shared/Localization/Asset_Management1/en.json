@@ -1,0 +1,13 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Menu:Product_Management": "Product Management",
+    "Menu:Project_Management": "Project Management", 
+    "Welcome": "Welcome",
+    "Menu:Project Details": "Project Details",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:Products": "Products",
+    "Menu:Projects": "Projects"
+  }
+}
